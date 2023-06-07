@@ -7,8 +7,17 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *walking;
-	listint_t *driving;
+	listint_t *walking = list;
+	listint_t *driving = list;
 
-
+	if (!list)
+		return (0);
+	while (walking && driving && driving->next)
+	{
+		walking = walking->next;
+		driving = driving->next->next;
+		if (walking == driving)
+			return (1);
+	}
+	return (0);
 }
