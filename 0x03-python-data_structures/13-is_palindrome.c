@@ -10,9 +10,9 @@ int is_palindrome(listint_t **head)
 	listint_t *start = *head, *end = *head;
 	int nodes = 0, i = 0, j = 0;
 
-	if (*head == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	while (start)
+	while (start && start->next)
 	{
 		start = start->next;
 		nodes++;
