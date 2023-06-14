@@ -21,9 +21,10 @@ int is_palindrome(listint_t **head)
 	for (i = 1; i <= nodes; i++)
 	{
 		for (j = i; j <= nodes - i; j++)
-			end = end->next;
-		if (start->n != end->n)
-			return (0);
+		{	
+			if (start->n != end->n)
+				return (0);
+		}
 		start = start->next;
 		end = start;
 	}
