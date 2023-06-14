@@ -12,7 +12,7 @@ int is_palindrome(listint_t **head)
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	while (start && start->next)
+	while (start)
 	{
 		start = start->next;
 		nodes++;
@@ -21,9 +21,11 @@ int is_palindrome(listint_t **head)
 	for (i = 1; i <= nodes; i++)
 	{
 		for (j = i; j <= nodes - i; j++)
-			end = end->next;
-		if (start->n != end->n)
-			return (0);
+		{
+			/*end = end->next;*/
+			if (start->n != end->n)
+				return (0);
+		}
 		start = start->next;
 		end = start;
 	}
