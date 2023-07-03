@@ -9,7 +9,7 @@ class Square:
     The class Square definition
     """
 
-    def __init__(self, size):
+    def __init__(self, size=0):
         """
         Initialization
 
@@ -30,5 +30,5 @@ class Square:
 
         Return:
             the area of the square
-        """
+       i """
         return (self.__size * self.__size)
