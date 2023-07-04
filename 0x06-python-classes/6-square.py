@@ -46,7 +46,7 @@ class Square:
             Args:
                 value (int): the value of the position
         """
-        if (not isinstance(value, tuple) or
+        if (not (isinstance(value, tuple)) or
                 len(value) != 2 or
                 not all(isinstance(n, int) for n in value) or
                 not all(n >= 0 for n in value)):
