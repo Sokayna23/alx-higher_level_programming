@@ -34,7 +34,7 @@ class Rectangle:
     def height(self):
         """gets the height of the triangle"""
         return (self.__height)
-    
+
     @width.setter
     def width(self, value):
         """Sets the value of the width
