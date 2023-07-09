@@ -5,7 +5,7 @@
 class Rectangle:
     """The class Rectangle"""
 
-    def __init__(self, width, height):
+    def __init__(self, width=0, height=0):
         """Initialization function
 
         Args:
@@ -34,7 +34,7 @@ class Rectangle:
     def height(self):
         """gets the height of the triangle"""
         return (self.__height)
-
+    
     @width.setter
     def width(self, value):
         """Sets the value of the width
