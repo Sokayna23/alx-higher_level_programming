@@ -1,0 +1,35 @@
+------------------------|
+BaseGeometry test cases:|
+------------------------|
+
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+
+case: value is an integer:
+..........................
+>>> bg.integer_validator("my_int", 12)
+
+Output: 
+......
+No output --> No errors detected --> value was valideted successfully.
+
+case: value is not an integer:
+.......................
+>>> bg.integer_validator("width", "ten")
+
+Output:
+.......
+TypeError: <name> must be an integer
+
+case: value = 0:
+................
+>>> bg.integer_validator("age", 0)
+Output:
+.......
+ValueError: <name> must be greater than 0
+
+>>> bg.integer_validator("age", -5)
+Output:
+.......
+ValueError: <name> must be greater than 0
