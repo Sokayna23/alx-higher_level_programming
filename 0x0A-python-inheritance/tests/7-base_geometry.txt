@@ -1,6 +1,5 @@
-------------------------|
-BaseGeometry test cases:|
-------------------------|
+BaseGeometry test cases:
+------------------------
 
 check module's doc:
 	>>> doc = __import__("7-base_geometry").__doc__
@@ -15,7 +14,7 @@ check methode's doc:
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 	>>> bg = BaseGeometry()
 
-case area():
+case 1 area():
 ............
 	>>> bg.area()
 Output:
@@ -24,7 +23,7 @@ Output:
 	...
 	Exception: area() is not implemented
 
-case: value is an integer:
+case 2 value is a positive integer:
 ..........................
 	>>> bg.integer_validator("my_int", 12)
 
@@ -32,7 +31,7 @@ Output:
 ......
 
 
-case: value is not an integer:
+case 3 value is not an integer:
 .......................
 	>>> bg.integer_validator("width", "ten")
 
@@ -41,14 +40,16 @@ Output:
 	...
 	TypeError: <name> must be an integer
 
-case: value = 0:
+case 4 value = 0:
 ................
 	>>> bg.integer_validator("age", 0)
 Output:
 .......
 	...
 	ValueError: <name> must be greater than 0
-case value is negative :
+
+case 5 value < 0 :
+.......................
 	>>> bg.integer_validator("age", -5)
 Output:
 .......
