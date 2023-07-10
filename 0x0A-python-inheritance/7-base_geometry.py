@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 """
-    Module that defines an empty class ''BaseGeomtry''
+    Module that defines BaseGeomtry class
 """
 
 
 class BaseGeometry:
     """
-        An empty class
+        BaseGeometry class
     """
+
     def area(self):
         """
             calculates the area of the geometry
