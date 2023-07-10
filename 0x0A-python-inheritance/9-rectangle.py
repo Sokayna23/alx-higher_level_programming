@@ -23,4 +23,3 @@ class Rectangle(BaseGeometry):
         description = "[" + str(self.__class__.__name__) + "] "
         description += str(self.__width) + "/" + str(self.__height)
         return (description)
-
