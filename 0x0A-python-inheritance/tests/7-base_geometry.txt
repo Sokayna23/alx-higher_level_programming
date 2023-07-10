@@ -2,34 +2,65 @@
 BaseGeometry test cases:|
 ------------------------|
 
+check module's doc:
+	>>> doc = __import__("7-base_geometry").__doc__
+        >>> print(len(doc) > 1)
+        True
 
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
->>> bg = BaseGeometry()
+check methode's doc:
+	>>> doc = __import__("7-base_geometry").BaseGeometry.__doc__
+	>>> print(len(doc) > 1)
+	True
+
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+
+case area():
+............
+	>>> bg.area()
+Output:
+.......
+
+	...
+	Exception: area() is not implemented
 
 case: value is an integer:
 ..........................
->>> bg.integer_validator("my_int", 12)
+	>>> bg.integer_validator("my_int", 12)
 
 Output: 
 ......
-No output --> No errors detected --> value was valideted successfully.
+
 
 case: value is not an integer:
 .......................
->>> bg.integer_validator("width", "ten")
+	>>> bg.integer_validator("width", "ten")
 
 Output:
 .......
-TypeError: <name> must be an integer
+	...
+	TypeError: <name> must be an integer
 
 case: value = 0:
 ................
->>> bg.integer_validator("age", 0)
+	>>> bg.integer_validator("age", 0)
 Output:
 .......
-ValueError: <name> must be greater than 0
+	...
+	ValueError: <name> must be greater than 0
+case value is negative :
+	>>> bg.integer_validator("age", -5)
+Output:
+.......
+	...
+	ValueError: <name> must be greater than 0
 
->>> bg.integer_validator("age", -5)
+case value is a float:
+......................
+	>>> bg.integer_validator("age", 23.5)
+
 Output:
 .......
-ValueError: <name> must be greater than 0
+
+	...
+	TypeError: <name> must be an integer
