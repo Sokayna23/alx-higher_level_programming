@@ -4,9 +4,10 @@
     of a specified class.
 """
 
+
 def is_same_class(obj, a_class):
     """
-        Function that determines wheither an object is an instance of a class 
+        Function that determines wheither an object is an instance of a class
         Args:
             obj: object
             a_class: class
