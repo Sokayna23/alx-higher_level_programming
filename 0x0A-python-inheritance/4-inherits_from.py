@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """
+    Module defines ''inherits_from()'' function
 """
 
 
@@ -10,7 +11,7 @@ def inherits_from(obj, a_class):
             obj: object
             a_class: class
 
-        Return:
+        Returns:
             True if yes,
             False otherwise.
     """
