@@ -8,7 +8,7 @@ def load_from_json_file(filename):
         Creates an Object from a JSON file.
 
         Args:
-            filename: file name.
+            filename: file name
 
         Returns:
             An Object.
