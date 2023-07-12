@@ -21,5 +21,6 @@ class Student:
         """Gets a dictionary representation of the class Student."""
         if (type(attrs) == list and
                 all(type(elmt) == str for elmt in attrs)):
-            return {attr: getattr(self, attr) for attr in attrs if hasattr(self, attr)}
+            return {attr: getattr(self, attr)
+                    for attr in attrs if hasattr(self, attr)}
         return self.__dict__
