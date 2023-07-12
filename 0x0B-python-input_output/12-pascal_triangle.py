@@ -4,7 +4,7 @@
 
 def pascal_triangle(n):
     """Defines Pascal's Triangle of size n.
-        
+
         Args:
             n (int): number.
 
