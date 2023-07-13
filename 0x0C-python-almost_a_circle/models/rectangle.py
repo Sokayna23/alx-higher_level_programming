@@ -38,6 +38,14 @@ class Rectangle(Base):
                 shape += '\n'
         print(str(shape))
 
+    def __str__(self):
+        """Prints a string representation of Rectangle."""
+        rectangle = "[Rectangle] "
+        rectangle += "(" + str(self.id) + ") " + str(self.__x) + "/"
+        rectangle += str(self.__y) + " - " + str(self.__width) + "/"
+        rectangle += str(self.__height)
+        return rectangle
+
     @property
     def width(self):
         """Gets the width of the rectangle."""
