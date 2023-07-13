@@ -31,15 +31,16 @@ class Rectangle(Base):
         """Displays the Rectangle with a specific symbole."""
         shape = ''
         if self.__width == 0 or self.__height == 0:
-            print(str(shape))
+            print("")
+            return
+        for y in range(self.__y):
+            print("")
         for h in range(self.__height):
-            shape += ('#' * self.__width)
-            if h < self.__height - 1:
-                shape += '\n'
-        print(str(shape))
+            print(" " * self.__x, end="")
+            print("#" * self.__width)
 
     def __str__(self):
-        """Prints a string representation of Rectangle."""
+        """Returns a string representation of Rectangle."""
         rectangle = "[Rectangle] "
         rectangle += "(" + str(self.id) + ") " + str(self.__x) + "/"
         rectangle += str(self.__y) + " - " + str(self.__width) + "/"
