@@ -27,6 +27,17 @@ class Rectangle(Base):
         """Computes the area of the recrangle."""
         return self.__width * self.__height
 
+    def display(self):
+        """Displays the Rectangle with a specific symbole."""
+        shape = ''
+        if self.__width == 0 or self.__height == 0:
+            print(str(shape))
+        for h in range(self.__height):
+            shape += ('#' * self.__width)
+            if h < self.__height - 1:
+                shape += '\n'
+        print(str(shape))
+
     @property
     def width(self):
         """Gets the width of the rectangle."""
