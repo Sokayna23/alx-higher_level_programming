@@ -79,7 +79,6 @@ class Rectangle(Base):
                 self.__x = kwargs["x"]
             if "y" in kwargs:
                 self.__y = kwargs["y"]
-
     def __str__(self):
         """Returns a string representation of Rectangle."""
         rectangle = "[Rectangle] "
@@ -87,6 +86,10 @@ class Rectangle(Base):
         rectangle += str(self.__y) + " - " + str(self.__width) + "/"
         rectangle += str(self.__height)
         return rectangle
+    
+    def to_dictionary(self):
+        """Returns the dictionary representation of a Rectangle."""
+        return {"x": self.__x, "y": self.__y, "id": self.id, "height": self.__height, "width": self.__width}
 
     @property
     def width(self):
