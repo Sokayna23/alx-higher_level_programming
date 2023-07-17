@@ -1,15 +1,13 @@
 #!/usr/bin/python3
 """Module that defines Rectangle class."""
-
 from models.base import Base
 
 
 class Rectangle(Base):
     """Rectangle class."""
-    
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initializion of Rectangle class.
-            
+
             Args:
                 width (int): width of the rectangle.
                 height (int): height of the rectangle.
@@ -22,7 +20,7 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-    
+
     def area(self):
         """Computes the area of the recrangle."""
         return self.__width * self.__height
@@ -79,6 +77,7 @@ class Rectangle(Base):
                 self.__x = kwargs["x"]
             if "y" in kwargs:
                 self.__y = kwargs["y"]
+
     def __str__(self):
         """Returns a string representation of Rectangle."""
         rectangle = "[Rectangle] "
@@ -86,10 +85,16 @@ class Rectangle(Base):
         rectangle += str(self.__y) + " - " + str(self.__width) + "/"
         rectangle += str(self.__height)
         return rectangle
-    
+
     def to_dictionary(self):
         """Returns the dictionary representation of a Rectangle."""
-        return {"x": self.__x, "y": self.__y, "id": self.id, "height": self.__height, "width": self.__width}
+        return {
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
 
     @property
     def width(self):
@@ -132,7 +137,7 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """Sets the value of x.
-            
+
             Args:
                 x (int): integer
 
