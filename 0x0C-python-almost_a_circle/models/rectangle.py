@@ -16,26 +16,29 @@ class Rectangle(Base):
                 id (int): id.
         """
         super().__init__(id)
-        if not isinstance(width, int):
+        if type(width) is not int:
             raise TypeError("width must be an integer")
         if width <= 0:
             raise ValueError("width must be > 0")
-        self.__width = width
-        if not isinstance(height, int):
+        self.width = width
+
+        if type(height) is not int:
             raise TypeError("height must be an integer")
         if height <= 0:
             raise ValueError("height must be > 0")
-        self.__height = height
-        if not isinstance(x, int):
+        self.height = height
+
+        if type(x) is not int:
             raise TypeError("x must be an integer")
         if x < 0:
             raise ValueError("x must be >= 0")
-        self.__x = x
-        if not isinstance(y, int):
+        self.x = x
+
+        if type(y) is not int:
             raise TypeError("y must be an integer")
         if y < 0:
             raise ValueError("y must be >= 0")
-        self.__y = y
+        self.y = y
 
     def area(self):
         """Computes the area of the recrangle."""
@@ -124,7 +127,7 @@ class Rectangle(Base):
             Args:
                 value (int): an integer.
         """
-        if (not isinstance(value, int)):
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         elif (value < 0):
             raise ValueError("width must be > 0")
