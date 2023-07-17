@@ -131,7 +131,11 @@ class Base:
         objs = []
         try:
             with open(filename, "r", newline="") as f:
-                reader = csv.DictReader(f)
+                if cls.__name__ == "Rectangle":
+                    field_names = ["id", "width", "height", "x", "y"]
+                else:
+                    field_names = ["id", "size", "x", "y"]
+                reader = csv.DictReader(f, fieldnames=field_names)
                 for row in reader:
                     objs.append(cls.create(**row))
                 return objs
