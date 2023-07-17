@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module that defines Base class."""
 import json
+import csv
 
 
 class Base:
@@ -77,9 +78,13 @@ class Base:
             Args:
                 **dictionary: dictionary.
         """
-        dummy_instance = cls.__new__(cls)
-        dummy_instance.update(**dictionary)
-        return dummy_instance
+        if dictionary and len(dictionary) != 0:
+            if cls.__name__ == "Rectangle":
+                instance = cls(1, 1)
+            elif cls.__name__ == "Square":
+                instance = cls(1)
+            instance.update(**dictionary)
+        return instance
 
     @classmethod
     def load_from_file(cls):
@@ -95,3 +100,35 @@ class Base:
         except FileNotFoundError:
             pass
         return instances
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Writes the CSV serialization of a list of objects to a file.
+
+        Args:
+            list_objs (list): list of instances to serialize.
+        """
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w", newline="") as f:
+            if list_objs == None or len(list_objs) == 0:
+                f.write("")
+            else:
+                field_names = list_objs[0].to_dictionary().keys()
+                writer = csv.DictWriter(f, fieldnames=field_names)
+                writer.writeheader()
+                for obj in list_objs:
+                    writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserializes objects from a CSV file and returns a list of instances."""
+        filename = cls.__name__ + ".csv"
+        objs = []
+        try:
+            with open(filename, "r", newline="") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    objs.append(cls.create(**row))
+                return objs
+        except FileNotFoundError:
+            return []
