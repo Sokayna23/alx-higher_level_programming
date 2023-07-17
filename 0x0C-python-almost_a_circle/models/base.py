@@ -113,11 +113,10 @@ class Base:
             if list_objs is None or len(list_objs) == 0:
                 f.write("[]")
                 return
-            if cls.__name__ == "Rectangle":
-                fieldNames = ["id", "width", "height", "x", "y"]
-            elif cls.__name__ == "Square":
-                fieldNames = ["id", "size", "x", "y"]
-                writer = csv.DictWriter(f, fieldnames=field_names)
+            else:
+                fieldnames = list_objs[0].to_dictionary().keys()
+                writer = csv.DictWriter(f, fieldnames=fieldnames)
+                writer.writeheader()
                 for obj in list_objs:
                     writer.writerow(obj.to_dictionary())
 
@@ -130,16 +129,13 @@ class Base:
                 a list of instances.
         """
         filename = cls.__name__ + ".csv"
-        objs = []
         try:
             with open(filename, "r", newline="") as f:
-                if cls.__name__ == "Rectangle":
-                    field_names = ["id", "width", "height", "x", "y"]
-                else:
-                    field_names = ["id", "size", "x", "y"]
-                reader = csv.DictReader(f, fieldnames=field_names)
+                reader = csv.DictReader(f)
+                objs = []
                 for row in reader:
-                    objs.append(cls.create(**row))
-                return objs
-        except IOError:
+                    obj = {key: int(value) for key, value in row.items()}
+                    objs.append(obj)
+                return [cls.create(**item) for item in objs]
+        except FileNotFoundError:
             return []
