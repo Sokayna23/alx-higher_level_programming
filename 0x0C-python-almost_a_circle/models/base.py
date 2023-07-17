@@ -111,7 +111,7 @@ class Base:
         filename = cls.__name__ + ".csv"
         with open(filename, "w", newline="") as f:
             if list_objs is None or len(list_objs) == 0:
-                f.write("")
+                f.write("[]")
             else:
                 field_names = list_objs[0].to_dictionary().keys()
                 writer = csv.DictWriter(f, fieldnames=field_names)
