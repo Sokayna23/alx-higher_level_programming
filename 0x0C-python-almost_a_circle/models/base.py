@@ -37,7 +37,7 @@ class Base:
                 an empty list [] (if it is None) otherwise.
         """
         if list_dictionaries is None or list_dictionaries == []:
-            return []
+            return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
@@ -49,7 +49,7 @@ class Base:
         filename = cls.__name__ + ".json"
         with open(filename, "w", encoding="utf-8") as f:
             if list_objs is None:
-                f.write([])
+                f.write("[]")
             else:
                 dicts_list = [obj.to_dictionary() for obj in list_objs]
                 f.write(Base.to_json_string(dicts_list))
