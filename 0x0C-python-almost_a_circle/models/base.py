@@ -2,6 +2,7 @@
 """Module that defines Base class."""
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -139,3 +140,60 @@ class Base:
                 return [cls.create(**item) for item in objs]
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+            Opens a window and draws rectangles and squares.
+
+            Args:
+                list_rectangles (list): a list of rectangles.
+                list_squares (list): a list of squares.
+        """
+        turtle_screen = turtle.Screen()
+        turtle_screen.bgcolor('white')
+        turtle_screen.title("Let's draw it")
+
+        turtle_pen = turtle.Turtle()
+        turtle_pen.pensize(2)
+
+        for r in list_rectangles:
+            r_width = r.width
+            r_height = r.height
+            r_x = r.x
+            r_y = r.y
+
+            turtle_pen.penup()
+            turtle_pen.goto(r_x, r_y)
+            turtle_pen.pendown()
+            turtle_pen.setheading(0)
+            turtle_pen.forward(r_width)
+            turtle_pen.right(90)
+            turtle_pen.forward(r_height)
+            turtle_pen.right(90)
+            turtle_pen.forward(r_width)
+            turtle_pen.right(90)
+            turtle_pen.forward(r_height)
+            turtle_pen.right(90)
+            turtle_pen.penup()
+
+        for s in list_squares:
+            s_size = s.size
+            s_x = s.x
+            s_y = s.y
+
+            turtle_pen.penup()
+            turtle_pen.goto(s_x, s_y)
+            turtle_pen.pendown()
+            turtle_pen.setheading(0)
+            turtle_pen.forward(s_size)
+            turtle_pen.right(90)
+            turtle_pen.forward(s_size)
+            turtle_pen.right(90)
+            turtle_pen.forward(s_size)
+            turtle_pen.right(90)
+            turtle_pen.forward(s_size)
+            turtle_pen.right(90)
+            turtle_pen.penup()
+
+        turtle_screen.exitonclick()
