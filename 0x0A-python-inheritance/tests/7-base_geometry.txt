@@ -48,7 +48,5 @@ case 5 value < 0 :
 case value is a float:
 ......................
 	>>> bg.integer_validator("age", 23.5)
-
-
 	...
 	TypeError: <name> must be an integer

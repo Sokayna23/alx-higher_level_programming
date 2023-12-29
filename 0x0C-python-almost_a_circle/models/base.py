@@ -155,6 +155,7 @@ class Base:
         turtle_screen.title("Let's draw it")
 
         turtle_pen = turtle.Turtle()
+        turtle_pen.color('white')
         turtle_pen.pensize(2)
 
         for r in list_rectangles:
