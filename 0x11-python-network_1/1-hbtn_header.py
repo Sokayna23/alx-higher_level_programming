@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-"""Response header value #0"""
-import sys
+""" module """
 from urllib import request
+import sys
 
 
 url = sys.argv[1]
