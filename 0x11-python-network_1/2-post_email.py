@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Module that POST an email """
-from urllib import request
+from urllib import request, parse
 import sys
 
 
