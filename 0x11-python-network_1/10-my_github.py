@@ -11,4 +11,7 @@ if __name__ == "__main__":
     data = {"Authorization": password}
     response = requests.get(url, headers=data)
     json = response.json()
+    if (response.status_code >= 400):
+        print("None")
+        exit()
     print(json.get("id"))
