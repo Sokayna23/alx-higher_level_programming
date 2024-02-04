@@ -4,7 +4,7 @@ from urllib import request, error
 import sys
 
 
-if __name__== "__main__":
+if __name__ == "__main__":
     url = sys.argv[1]
     req = request.Request(url)
     try:
@@ -12,4 +12,3 @@ if __name__== "__main__":
             pass
     except error.HTTPError as e:
         print("Error code:", e.code)
-   
