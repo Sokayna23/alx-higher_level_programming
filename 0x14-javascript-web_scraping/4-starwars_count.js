@@ -6,7 +6,6 @@ const process = require('process');
 
 const apiUrl = process.argv[2];
 
-
 request.get(apiUrl, { json: true }, (err, resp, body) => {
   if (err) {
     console.error(err);
