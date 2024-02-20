@@ -20,4 +20,3 @@ request.get(url, (error, resp, body) => {
     });
   }
 });
-
