@@ -16,6 +16,10 @@ request.get(apiUrl, { json: true }, (err, resp, body) => {
   } else {
     const filmsWithWedge = body.results.filter((film) =>
       film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${id}/`));
-    console.log(filmsWithWedge.length);
+    if (filmsWithWedge) {
+      console.log(filmsWithWedge.length);
+    } else {
+      console.log(0);
+    }
   }
 });
