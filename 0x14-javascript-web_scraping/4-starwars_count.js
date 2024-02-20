@@ -6,7 +6,6 @@ const process = require('process');
 
 const apiUrl = process.argv[2];
 
-const id = 18;
 
 request.get(apiUrl, { json: true }, (err, resp, body) => {
   if (err) {
@@ -15,11 +14,7 @@ request.get(apiUrl, { json: true }, (err, resp, body) => {
     console.error('code:', resp && resp.statusCode);
   } else {
     const filmsWithWedge = body.results.filter((film) =>
-      film.characters.includes(`https://swapi-api.alx-tools.com/api/people/${id}/`));
-    if (filmsWithWedge) {
-      console.log(filmsWithWedge.length);
-    } else {
-      console.log(0);
-    }
+      film.characters.some((character) => character.match(/\/people\/18\//)));
+    console.log(filmsWithWedge.length);
   }
 });
